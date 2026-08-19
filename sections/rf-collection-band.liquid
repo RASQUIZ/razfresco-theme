@@ -70,8 +70,82 @@
       {%- endfor -%}
     </div>
   {%- else -%}
-    <div style="padding:64px var(--rf-page-margin); color: rgba(3,3,2,0.6);">
-      Pick a collection in the theme customizer to show products here.
+    <div class="rf-grid">
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-hoodie-7154-green-front.png' | asset_url }}" alt="7154 Heavyweight Hoodie — Green" loading="lazy">
+          <img src="{{ 'prod-hoodie-7154-green-back.png' | asset_url }}" alt="7154 Heavyweight Hoodie — Green Back" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">7154 Heavyweight Hoodie</div>
+          <div class="rf-card__price">$160 CAD</div>
+          <div class="rf-card__colorway">Forest Green · 5 per size</div>
+        </div>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-jersey-white-front.png' | asset_url }}" alt="Magneto Hockey Jersey — White" loading="lazy">
+          <img src="{{ 'prod-jersey-white-back.png' | asset_url }}" alt="Magneto Hockey Jersey — White Back" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">Magneto Mesh Hockey Jersey</div>
+          <div class="rf-card__price">$180 CAD</div>
+          <div class="rf-card__colorway">Ice White / Purple · 5 per size</div>
+        </div>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-sshood-black-front.png' | asset_url }}" alt="Short Sleeve Pullover — Black" loading="lazy">
+          <img src="{{ 'prod-sshood-black-back.png' | asset_url }}" alt="Short Sleeve Pullover — Black Back" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">Raw Hem Short Sleeve Hoodie</div>
+          <div class="rf-card__price">$130 CAD</div>
+          <div class="rf-card__colorway">Washed Black · 5 per size</div>
+        </div>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-hoodie-7154-brown-front.png' | asset_url }}" alt="7154 Heavyweight Hoodie — Brown" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">7154 Heavyweight Hoodie</div>
+          <div class="rf-card__price">$160 CAD</div>
+          <div class="rf-card__colorway">Earth Brown · 5 per size</div>
+        </div>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-tee-7154-black-front.png' | asset_url }}" alt="7154 Boxy Tee — Black" loading="lazy">
+          <img src="{{ 'prod-tee-7154-black-back.png' | asset_url }}" alt="7154 Boxy Tee — Black Back" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">7154 Heavyweight Boxy Tee</div>
+          <div class="rf-card__price">$75 CAD</div>
+          <div class="rf-card__colorway">Onyx Black · 5 per size</div>
+        </div>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card__media">
+          <img src="{{ 'prod-zip-peace-black-front.png' | asset_url }}" alt="Peace Full Zip — Black" loading="lazy">
+          {%- if locked -%}<div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>{%- endif -%}
+        </div>
+        <div class="rf-card__body">
+          <div class="rf-card__name">Peace Full Zip Thermal Jacket</div>
+          <div class="rf-card__price">$195 CAD</div>
+          <div class="rf-card__colorway">Midnight Black · 5 per size</div>
+        </div>
+      </div>
     </div>
   {%- endif -%}
 

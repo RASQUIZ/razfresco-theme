@@ -49,8 +49,10 @@
   </div>
 
   <div class="rf-hero__media" data-rf-slideshow data-rf-interval="{{ section.settings.interval }}">
+    {%- assign has_custom_photos = false -%}
     {%- for block in section.blocks -%}
       {%- if block.settings.image != blank -%}
+        {%- assign has_custom_photos = true -%}
         <img
           data-rf-slide
           {% if forloop.first %}class="is-active"{% endif %}
@@ -61,8 +63,20 @@
       {%- endif -%}
     {%- endfor -%}
 
-    {%- if section.settings.show_counter and section.blocks.size > 1 -%}
-      <div class="rf-hero__counter rf-label" data-rf-counter>01 / {{ section.blocks.size }}</div>
+    {%- unless has_custom_photos -%}
+      {%- assign default_photos = '01.jpg,02.jpg,03.jpg,04.jpg,05.jpg,06.jpg,07.jpg,08.jpg,09.jpg,10.jpg,11.jpg,12.jpg,13.jpg,14.jpg' | split: ',' -%}
+      {%- for photo in default_photos -%}
+        <img
+          data-rf-slide
+          {% if forloop.first %}class="is-active"{% endif %}
+          src="{{ photo | asset_url }}"
+          alt="Raz Fresco"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+      {%- endfor -%}
+    {%- endunless -%}
+
+    {%- if section.settings.show_counter -%}
+      <div class="rf-hero__counter rf-label" data-rf-counter>01 / {% if has_custom_photos and section.blocks.size > 0 %}{% if section.blocks.size < 10 %}0{% endif %}{{ section.blocks.size }}{% else %}14{% endif %}</div>
     {%- endif -%}
   </div>
 </div>
