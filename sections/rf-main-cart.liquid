@@ -1,0 +1,62 @@
+{%- comment -%} Cart {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">Cart</h1>
+</div>
+
+{%- if cart.item_count == 0 -%}
+  <div class="rf-empty">
+    <div class="rf-display" style="font-size:40px;">Nothing in here yet.</div>
+    <a class="rf-btn rf-btn--primary" href="{{ routes.all_products_collection_url }}">Shop C-01</a>
+  </div>
+{%- else -%}
+  <form action="{{ routes.cart_url }}" method="post" novalidate class="rf-cart">
+    {%- for item in cart.items -%}
+      <div class="rf-cart__row">
+        <a href="{{ item.url }}">
+          {%- if item.image -%}
+            <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.image.alt | escape }}" loading="lazy">
+          {%- endif -%}
+        </a>
+
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <a class="rf-display" style="font-size:26px;" href="{{ item.url }}">{{ item.product.title }}</a>
+          {%- unless item.product.has_only_default_variant -%}
+            <div class="rf-label" style="color: rgba(255,255,255,0.5);">{{ item.variant.title }}</div>
+          {%- endunless -%}
+          <a class="rf-label" style="color: rgba(255,255,255,0.5);" href="{{ item.url_to_remove }}">Remove</a>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label class="visually-hidden" for="qty-{{ item.index | plus: 1 }}">Quantity</label>
+          <input
+            class="rf-input"
+            style="width:72px; text-align:center;"
+            id="qty-{{ item.index | plus: 1 }}"
+            type="number"
+            name="updates[]"
+            value="{{ item.quantity }}"
+            min="0">
+        </div>
+
+        <div style="font-size:16px; font-weight:600; white-space:nowrap;">{{ item.final_line_price | money }}</div>
+      </div>
+    {%- endfor -%}
+
+    <div class="rf-cart__totals">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div class="rf-label" style="color: rgba(255,255,255,0.5);">Subtotal</div>
+        <div class="rf-display" style="font-size:40px;">{{ cart.total_price | money }}</div>
+        <div class="rf-label" style="color: rgba(255,255,255,0.4);">Taxes and shipping calculated at checkout</div>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="rf-btn rf-btn--secondary" type="submit" name="update">Update</button>
+        <button class="rf-btn rf-btn--primary" type="submit" name="checkout">Checkout</button>
+      </div>
+    </div>
+  </form>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Cart" }
+{% endschema %}

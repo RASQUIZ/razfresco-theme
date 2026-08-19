@@ -1,0 +1,53 @@
+{%- comment -%} Contact page — bookings and press {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">{{ section.settings.title }}</h1>
+</div>
+
+<div style="padding:56px var(--rf-page-margin); display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:48px; max-width:1100px;">
+  <div style="display:flex; flex-direction:column; gap:28px;">
+    {%- for block in section.blocks -%}
+      <div style="display:flex; flex-direction:column; gap:8px;" {{ block.shopify_attributes }}>
+        <div class="rf-label" style="color: rgba(255,255,255,0.4);">{{ block.settings.label }}</div>
+        <a class="rf-display" style="font-size:30px;" href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.show_form -%}
+    {%- form 'contact', class: 'rf-signup__fields' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="rf-form__success">{{ section.settings.success }}</p>
+      {%- elsif form.errors -%}
+        <p class="rf-form__error">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+      <input class="rf-input" type="text" name="contact[name]" placeholder="Name" required>
+      <input class="rf-input" type="email" name="contact[email]" placeholder="Email address" required>
+      <textarea class="rf-input" name="contact[body]" rows="6" placeholder="{{ section.settings.message_placeholder }}" required></textarea>
+      <button class="rf-btn rf-btn--primary" type="submit">{{ section.settings.cta }}</button>
+    {%- endform -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Contact" },
+    { "type": "checkbox", "id": "show_form", "label": "Show message form", "default": true },
+    { "type": "text", "id": "message_placeholder", "label": "Message placeholder", "default": "Booking date, venue, budget — or what you're writing about" },
+    { "type": "text", "id": "cta", "label": "Button", "default": "Send" },
+    { "type": "text", "id": "success", "label": "Success message", "default": "Sent. You'll hear back." }
+  ],
+  "blocks": [
+    {
+      "type": "address",
+      "name": "Email address",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "text", "id": "email", "label": "Email" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Contact" }]
+}
+{% endschema %}

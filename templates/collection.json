@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-main-collection",
+      "settings": {
+        "locked": true,
+        "lock_badge": "Locked"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

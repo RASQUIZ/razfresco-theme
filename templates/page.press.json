@@ -1,0 +1,189 @@
+{
+  "sections": {
+    "quotes": {
+      "type": "rf-press-quotes",
+      "blocks": {
+        "quote-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "[A]n indie veteran… [an] inspired spitter with plenty of bars, but also a good amount of commentary.",
+            "outlet": "Rolling Stone",
+            "date": "Aug 13, 2024",
+            "url": ""
+          }
+        },
+        "quote-2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Raz is the streetwise and spiritual Five Percenter, a loop-digging auteur…",
+            "outlet": "Pitchfork",
+            "date": "Apr 22, 2025",
+            "url": ""
+          }
+        },
+        "quote-3": {
+          "type": "quote",
+          "settings": {
+            "quote": "Effortlessly self-assured, Fresco makes a showcase of every second.",
+            "outlet": "Bandcamp Daily",
+            "date": "Jul 10, 2026",
+            "url": ""
+          }
+        },
+        "quote-4": {
+          "type": "quote",
+          "settings": {
+            "quote": "Raz Fresco is Toronto’s most studious rapper. He brings a wealth of substance to a genre that is often cited as lacking just that. [..] Sitting down with the 20-year-old for a few hours is just as entertaining as it is an intellectual refresher.",
+            "outlet": "Complex",
+            "date": "Jul 2015",
+            "url": ""
+          }
+        },
+        "quote-5": {
+          "type": "quote",
+          "settings": {
+            "quote": "delivers the full package: meticulously constructed rhymes, intelligent lyricism and exquisite self-production.",
+            "outlet": "Exclaim!",
+            "date": "Jul 2, 2015",
+            "url": ""
+          }
+        },
+        "quote-6": {
+          "type": "quote",
+          "settings": {
+            "quote": "Fresco’s hyper-curiosity found satisfaction in the creative possibilities of the tiny sampler, a mindset that finds itself at home within a legacy of beatmakers throughout history.",
+            "outlet": "Teenage Engineering, “now”",
+            "date": "Jun 8, 2023",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "quote-1",
+        "quote-2",
+        "quote-3",
+        "quote-4",
+        "quote-5",
+        "quote-6"
+      ],
+      "settings": {
+        "anchor": "press",
+        "title": "Press",
+        "link_label": "Produced for or worked with",
+        "link_url": "/pages/credits",
+        "also": ""
+      }
+    },
+    "logos": {
+      "type": "rf-logo-wall",
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Rolling Stone",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "XXL",
+            "height": 34,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "CBC",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "MuchMusic",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-5": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "La Presse",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-6": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Vice",
+            "height": 46,
+            "invert": true,
+            "url": ""
+          }
+        },
+        "logo-7": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Noisey",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-8": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Pitchfork",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-9": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "teenage engineering",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4",
+        "logo-5",
+        "logo-6",
+        "logo-7",
+        "logo-8",
+        "logo-9"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "quotes",
+    "logos"
+  ]
+}

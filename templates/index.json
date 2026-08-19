@@ -1,0 +1,468 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rf-hero",
+      "blocks": {
+        "photo-1": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-2": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-3": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-4": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-5": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-6": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-7": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        },
+        "photo-8": {
+          "type": "photo",
+          "settings": {
+            "image": ""
+          }
+        }
+      },
+      "block_order": [
+        "photo-1",
+        "photo-2",
+        "photo-3",
+        "photo-4",
+        "photo-5",
+        "photo-6",
+        "photo-7",
+        "photo-8"
+      ],
+      "settings": {
+        "kicker": "Multi-disciplinary artist",
+        "roles": "Rapper · Producer · Educator\nBKRSCLB",
+        "interval": 3,
+        "show_counter": true,
+        "show_signup": true,
+        "signup_title": "Sign up to The Bakery",
+        "signup_note": "One sign-up makes you a Club Member on the streaming app and the store.",
+        "signup_cta": "Sign up",
+        "member_tag": "club-member-signed-up",
+        "signup_success": "You're in. Check your email to finish your profile.",
+        "profile_label": "Complete your profile on The Bakery",
+        "profile_url": "https://streaming.bkrsclb.com/artist/Raz%20Fresco"
+      }
+    },
+    "crawl": {
+      "type": "rf-crawl",
+      "blocks": {
+        "name-1": {
+          "type": "name",
+          "settings": {
+            "name": "Raekwon"
+          }
+        },
+        "name-2": {
+          "type": "name",
+          "settings": {
+            "name": "Mac Miller"
+          }
+        },
+        "name-3": {
+          "type": "name",
+          "settings": {
+            "name": "AZ"
+          }
+        },
+        "name-4": {
+          "type": "name",
+          "settings": {
+            "name": "Tragedy Khadafi"
+          }
+        },
+        "name-5": {
+          "type": "name",
+          "settings": {
+            "name": "Pete Rock"
+          }
+        },
+        "name-6": {
+          "type": "name",
+          "settings": {
+            "name": "Cookin Soul"
+          }
+        },
+        "name-7": {
+          "type": "name",
+          "settings": {
+            "name": "DJ Muggs"
+          }
+        },
+        "name-8": {
+          "type": "name",
+          "settings": {
+            "name": "Nicholas Craven"
+          }
+        },
+        "name-9": {
+          "type": "name",
+          "settings": {
+            "name": "DiBiase"
+          }
+        },
+        "name-10": {
+          "type": "name",
+          "settings": {
+            "name": "DJ Kay Slay"
+          }
+        },
+        "name-11": {
+          "type": "name",
+          "settings": {
+            "name": "DJ Don Cannon"
+          }
+        },
+        "name-12": {
+          "type": "name",
+          "settings": {
+            "name": "DJ Holiday"
+          }
+        },
+        "name-13": {
+          "type": "name",
+          "settings": {
+            "name": "French Montana"
+          }
+        },
+        "name-14": {
+          "type": "name",
+          "settings": {
+            "name": "Tyga"
+          }
+        },
+        "name-15": {
+          "type": "name",
+          "settings": {
+            "name": "Big Sean"
+          }
+        },
+        "name-16": {
+          "type": "name",
+          "settings": {
+            "name": "B.o.B"
+          }
+        },
+        "name-17": {
+          "type": "name",
+          "settings": {
+            "name": "The Cool Kids"
+          }
+        },
+        "name-18": {
+          "type": "name",
+          "settings": {
+            "name": "Rome Streetz"
+          }
+        },
+        "name-19": {
+          "type": "name",
+          "settings": {
+            "name": "Estee Nack"
+          }
+        },
+        "name-20": {
+          "type": "name",
+          "settings": {
+            "name": "Ankhlejohn"
+          }
+        },
+        "name-21": {
+          "type": "name",
+          "settings": {
+            "name": "Tha God Fahim"
+          }
+        },
+        "name-22": {
+          "type": "name",
+          "settings": {
+            "name": "Lil Supa"
+          }
+        },
+        "name-23": {
+          "type": "name",
+          "settings": {
+            "name": "Dano"
+          }
+        }
+      },
+      "block_order": [
+        "name-1",
+        "name-2",
+        "name-3",
+        "name-4",
+        "name-5",
+        "name-6",
+        "name-7",
+        "name-8",
+        "name-9",
+        "name-10",
+        "name-11",
+        "name-12",
+        "name-13",
+        "name-14",
+        "name-15",
+        "name-16",
+        "name-17",
+        "name-18",
+        "name-19",
+        "name-20",
+        "name-21",
+        "name-22",
+        "name-23"
+      ],
+      "settings": {
+        "label": "Produced for or worked with",
+        "label_color": "#555555",
+        "link": "/pages/credits",
+        "speed": 60
+      }
+    },
+    "c01": {
+      "type": "rf-collection-band",
+      "settings": {
+        "collection": "c-01",
+        "anchor": "c-01",
+        "kicker": "Collection One · 5 per size · One run, no restock",
+        "title": "C-01",
+        "limit": 6,
+        "locked": true,
+        "lock_badge": "Locked",
+        "locked_note": "Locked until launch. The waitlist gets the password first.",
+        "locked_cta": "Get the password",
+        "waitlist_tag": "c-01-waitlist",
+        "locked_success": "You're on the list.",
+        "button_label": "Everything else at BKR$CLB",
+        "button_url": "https://bkrsclb.com"
+      }
+    },
+    "press": {
+      "type": "rf-press-quotes",
+      "blocks": {
+        "quote-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "[A]n indie veteran… [an] inspired spitter with plenty of bars, but also a good amount of commentary.",
+            "outlet": "Rolling Stone",
+            "date": "Aug 13, 2024",
+            "url": ""
+          }
+        },
+        "quote-2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Raz is the streetwise and spiritual Five Percenter, a loop-digging auteur…",
+            "outlet": "Pitchfork",
+            "date": "Apr 22, 2025",
+            "url": ""
+          }
+        },
+        "quote-3": {
+          "type": "quote",
+          "settings": {
+            "quote": "Effortlessly self-assured, Fresco makes a showcase of every second.",
+            "outlet": "Bandcamp Daily",
+            "date": "Jul 10, 2026",
+            "url": ""
+          }
+        },
+        "quote-4": {
+          "type": "quote",
+          "settings": {
+            "quote": "Raz Fresco is Toronto’s most studious rapper. He brings a wealth of substance to a genre that is often cited as lacking just that. [..] Sitting down with the 20-year-old for a few hours is just as entertaining as it is an intellectual refresher.",
+            "outlet": "Complex",
+            "date": "Jul 2015",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "quote-1",
+        "quote-2",
+        "quote-3",
+        "quote-4"
+      ],
+      "settings": {
+        "anchor": "press",
+        "title": "Press",
+        "link_label": "All press",
+        "link_url": "/pages/press",
+        "also": ""
+      }
+    },
+    "logos": {
+      "type": "rf-logo-wall",
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Rolling Stone",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "XXL",
+            "height": 34,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "CBC",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "MuchMusic",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-5": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "La Presse",
+            "height": 30,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-6": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Vice",
+            "height": 46,
+            "invert": true,
+            "url": ""
+          }
+        },
+        "logo-7": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Noisey",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-8": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "Pitchfork",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        },
+        "logo-9": {
+          "type": "logo",
+          "settings": {
+            "image": "",
+            "text": "teenage engineering",
+            "height": 46,
+            "invert": false,
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4",
+        "logo-5",
+        "logo-6",
+        "logo-7",
+        "logo-8",
+        "logo-9"
+      ],
+      "settings": {}
+    },
+    "doors": {
+      "type": "rf-doors",
+      "blocks": {
+        "store": {
+          "type": "door",
+          "settings": {
+            "kicker": "The label store",
+            "title": "BKR$CLB",
+            "url": "https://bkrsclb.com"
+          }
+        },
+        "bakery": {
+          "type": "door",
+          "settings": {
+            "kicker": "Streaming",
+            "title": "The Bakery",
+            "url": "https://streaming.bkrsclb.com"
+          }
+        }
+      },
+      "block_order": [
+        "store",
+        "bakery"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "crawl",
+    "c01",
+    "press",
+    "logos",
+    "doors"
+  ]
+}

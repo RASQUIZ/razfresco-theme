@@ -1,0 +1,48 @@
+{%- comment -%} Site header — logotype + nav {%- endcomment -%}
+<header class="rf-header">
+  <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    {%- if section.settings.logo != blank -%}
+      <img class="rf-header__logo" src="{{ section.settings.logo | image_url: height: 40 }}" alt="{{ shop.name }}" height="18">
+    {%- else -%}
+      <img class="rf-header__logo" src="{{ 'razfresco-white.png' | asset_url }}" alt="{{ shop.name }}" height="18">
+    {%- endif -%}
+  </a>
+
+  <nav class="rf-nav rf-label" role="navigation">
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}"{% if link.active %} style="color: var(--rf-green);"{% endif %}>{{ link.title }}</a>
+    {%- endfor -%}
+
+    {%- if section.settings.show_external_links -%}
+      <span class="rf-nav__sep" aria-hidden="true"></span>
+      {%- if section.settings.store_url != blank -%}
+        <a class="rf-nav__ext" href="{{ section.settings.store_url }}">{{ section.settings.store_label }} &#8599;</a>
+      {%- endif -%}
+      {%- if section.settings.bakery_url != blank -%}
+        <a class="rf-nav__ext" href="{{ section.settings.bakery_url }}">{{ section.settings.bakery_label }} &#8599;</a>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.show_cart -%}
+      <a href="{{ routes.cart_url }}">Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
+    {%- endif -%}
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logotype (defaults to the graffiti mark)" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "header", "content": "Sister sites" },
+    { "type": "checkbox", "id": "show_external_links", "label": "Show BKR$CLB and THE BAKERY links", "default": true },
+    { "type": "text", "id": "store_label", "label": "Store label", "default": "BKR$CLB" },
+    { "type": "url", "id": "store_url", "label": "Store URL" },
+    { "type": "text", "id": "bakery_label", "label": "Streaming label", "default": "The Bakery" },
+    { "type": "url", "id": "bakery_url", "label": "Streaming URL" },
+    { "type": "header", "content": "Cart" },
+    { "type": "checkbox", "id": "show_cart", "label": "Show cart link", "default": true }
+  ]
+}
+{% endschema %}

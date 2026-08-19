@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-main-product",
+      "settings": {
+        "add_label": "Add to cart",
+        "locked": true,
+        "lock_badge": "Locked until launch",
+        "locked_note": "Join the waitlist and you'll get the password before this opens.",
+        "locked_cta": "Join the waitlist",
+        "waitlist_tag": "c-01-waitlist",
+        "locked_success": "You're on the list."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

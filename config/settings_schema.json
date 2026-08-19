@@ -1,0 +1,27 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "RAZFRESCO",
+    "theme_version": "1.0.0",
+    "theme_author": "BKRSCLB",
+    "theme_documentation_url": "https://razfresco.com",
+    "theme_support_url": "https://razfresco.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square. The BKRSCLB chef hat works at this size; the graffiti logotype does not."
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Social share image",
+        "info": "Shown when the site is linked in a text or post. 1200×630 is ideal."
+      }
+    ]
+  }
+]

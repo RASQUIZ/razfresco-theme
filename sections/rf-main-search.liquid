@@ -1,0 +1,41 @@
+{%- comment -%} Search {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">Search</h1>
+</div>
+
+<div style="padding:40px var(--rf-page-margin);">
+  <form action="{{ routes.search_url }}" method="get" role="search" style="display:flex; gap:10px; flex-wrap:wrap; max-width:520px;">
+    <input class="rf-input" style="flex:1; min-width:220px; width:auto;" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search">
+    <button class="rf-btn rf-btn--primary" type="submit">Search</button>
+  </form>
+</div>
+
+{%- if search.performed -%}
+  <div class="rf-light">
+    {%- if search.results_count > 0 -%}
+      <div class="rf-grid">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            <a class="rf-card" href="{{ item.url }}">
+              <div class="rf-card__media">
+                {%- if item.featured_image -%}
+                  <img src="{{ item.featured_image | image_url: width: 800 }}" alt="{{ item.featured_image.alt | escape }}" loading="lazy">
+                {%- endif -%}
+              </div>
+              <div class="rf-card__body">
+                <div class="rf-card__name">{{ item.title }}</div>
+                <div class="rf-card__price">{{ item.price | money }}</div>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div style="padding:80px var(--rf-page-margin); color: rgba(3,3,2,0.6);">No results for &ldquo;{{ search.terms | escape }}&rdquo;.</div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Search" }
+{% endschema %}

@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-contact",
+      "blocks": {
+        "bookings": {
+          "type": "address",
+          "settings": {
+            "label": "Bookings",
+            "email": "razfrescomgmt@gmail.com"
+          }
+        },
+        "press": {
+          "type": "address",
+          "settings": {
+            "label": "Press",
+            "email": "razfrescomgmt@gmail.com"
+          }
+        }
+      },
+      "block_order": [
+        "bookings",
+        "press"
+      ],
+      "settings": {
+        "title": "Contact",
+        "show_form": true,
+        "message_placeholder": "Booking date, venue, budget — or what you're writing about",
+        "cta": "Send",
+        "success": "Sent. You'll hear back."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-main-cart",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

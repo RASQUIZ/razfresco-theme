@@ -1,0 +1,56 @@
+{%- comment -%} Collection page — same grid vocabulary as the homepage band {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">{{ collection.title }}</h1>
+  {%- if collection.description != blank -%}
+    <div style="font-size:18px; line-height:1.5; max-width:44ch; color: rgba(255,255,255,0.65); text-wrap:pretty;">{{ collection.description }}</div>
+  {%- endif -%}
+</div>
+
+<div class="rf-light">
+  {%- paginate collection.products by 24 -%}
+    {%- if collection.products.size > 0 -%}
+      <div class="rf-grid">
+        {%- for product in collection.products -%}
+          <a class="rf-card" href="{{ product.url }}">
+            <div class="rf-card__media">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+              {%- endif -%}
+              {%- if product.images[1] -%}
+                <img src="{{ product.images[1] | image_url: width: 800 }}" alt="" loading="lazy">
+              {%- endif -%}
+              {%- if section.settings.locked -%}
+                <div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>
+              {%- elsif product.available == false -%}
+                <div class="rf-card__tag rf-label">Sold out</div>
+              {%- endif -%}
+            </div>
+            <div class="rf-card__body">
+              <div class="rf-card__name">{{ product.title }}</div>
+              <div class="rf-card__price">{{ product.price | money }}</div>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div style="padding:80px var(--rf-page-margin); color: rgba(3,3,2,0.6);">Nothing in this collection yet.</div>
+    {%- endif -%}
+
+    {%- if paginate.pages > 1 -%}
+      <div style="padding:24px var(--rf-page-margin); display:flex; gap:16px;" class="rf-label">
+        {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">&larr; Previous</a>{%- endif -%}
+        {%- if paginate.next -%}<a href="{{ paginate.next.url }}">Next &rarr;</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection grid",
+  "settings": [
+    { "type": "checkbox", "id": "locked", "label": "Show locked badges", "default": true },
+    { "type": "text", "id": "lock_badge", "label": "Badge", "default": "Locked" }
+  ]
+}
+{% endschema %}

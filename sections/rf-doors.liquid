@@ -1,0 +1,28 @@
+{%- comment -%} Two large doors to the sister properties {%- endcomment -%}
+<div class="rf-doors">
+  {%- for block in section.blocks -%}
+    <a class="rf-door" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+      <div class="rf-door__kicker rf-label">{{ block.settings.kicker }}</div>
+      <div class="rf-door__title">{{ block.settings.title }} &#8599;</div>
+    </a>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Sister site doors",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "door",
+      "name": "Door",
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Kicker" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "url", "id": "url", "label": "URL" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Sister site doors" }]
+}
+{% endschema %}

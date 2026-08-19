@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-list-collections",
+      "settings": {
+        "title": "Shop",
+        "locked": true,
+        "lock_badge": "Locked",
+        "note": "Exclusives live here. Everything else — the full BKR$CLB catalogue — ships from the label store.",
+        "button_label": "BKR$CLB",
+        "button_url": "https://bkrsclb.com"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

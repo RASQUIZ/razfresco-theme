@@ -1,0 +1,48 @@
+{%- comment -%} Scrolling collaborator crawl with a small label above it {%- endcomment -%}
+{%- liquid
+  assign names = ''
+  for block in section.blocks
+    if block.settings.name != blank
+      assign names = names | append: block.settings.name | append: ' · '
+    endif
+  endfor
+-%}
+
+<div class="rf-hairline" style="padding:18px 0 22px; overflow:hidden; display:flex; flex-direction:column; gap:12px;">
+  <div class="rf-pad">
+    {%- if section.settings.link != blank -%}
+      <a class="rf-label" href="{{ section.settings.link }}" style="color: {{ section.settings.label_color }};">{{ section.settings.label }} &rarr;</a>
+    {%- else -%}
+      <span class="rf-label" style="color: {{ section.settings.label_color }};">{{ section.settings.label }}</span>
+    {%- endif -%}
+  </div>
+
+  {%- if names != blank -%}
+    <div class="rf-crawl" style="animation-duration: {{ section.settings.speed }}s;">
+      <span>{{ names }}</span>
+      <span>{{ names }}</span>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collaborator crawl",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Produced for or worked with" },
+    { "type": "color", "id": "label_color", "label": "Label colour", "default": "#555555" },
+    { "type": "url", "id": "link", "label": "Label links to", "info": "Point this at your credits page." },
+    { "type": "range", "id": "speed", "label": "Loop duration", "min": 20, "max": 120, "step": 5, "default": 60, "unit": "s" }
+  ],
+  "blocks": [
+    {
+      "type": "name",
+      "name": "Name",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Collaborator crawl" }]
+}
+{% endschema %}

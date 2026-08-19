@@ -1,0 +1,35 @@
+{%- comment -%} Footer — contact, policy links, Instagram {%- endcomment -%}
+<footer class="rf-footer" id="contact" style="border-top: 1px solid var(--rf-hairline-dark);">
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    <div class="rf-label" style="color: rgba(255,255,255,0.4);">{{ section.settings.contact_kicker }}</div>
+    {%- if section.settings.contact_email != blank -%}
+      <a class="rf-display" style="font-size:40px; line-height:1;" href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_label }} &rarr;</a>
+    {%- endif -%}
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start;">
+    <div class="rf-footer__links rf-label">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+      {%- if section.settings.instagram != blank -%}
+        <a href="{{ section.settings.instagram }}">{{ section.settings.instagram_handle }}</a>
+      {%- endif -%}
+    </div>
+    <div class="rf-footer__legal">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "contact_kicker", "label": "Kicker", "default": "Bookings & press" },
+    { "type": "text", "id": "contact_label", "label": "Link text", "default": "Contact" },
+    { "type": "text", "id": "contact_email", "label": "Email address" },
+    { "type": "link_list", "id": "menu", "label": "Footer menu", "info": "Point this at your policy pages." },
+    { "type": "text", "id": "instagram_handle", "label": "Instagram handle", "default": "@RazFresco" },
+    { "type": "url", "id": "instagram", "label": "Instagram URL" }
+  ]
+}
+{% endschema %}

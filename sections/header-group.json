@@ -1,0 +1,21 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "rf-header": {
+      "type": "rf-header",
+      "settings": {
+        "menu": "main-menu",
+        "show_external_links": true,
+        "store_label": "BKR$CLB",
+        "store_url": "https://bkrsclb.com",
+        "bakery_label": "The Bakery",
+        "bakery_url": "https://streaming.bkrsclb.com",
+        "show_cart": true
+      }
+    }
+  },
+  "order": [
+    "rf-header"
+  ]
+}

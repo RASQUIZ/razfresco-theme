@@ -1,0 +1,12 @@
+{%- comment -%} Static page {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">{{ page.title }}</h1>
+</div>
+
+<div style="padding:56px var(--rf-page-margin); max-width:70ch;">
+  <div style="font-size:18px; line-height:1.6; text-wrap:pretty;">{{ page.content }}</div>
+</div>
+
+{% schema %}
+{ "name": "Page" }
+{% endschema %}

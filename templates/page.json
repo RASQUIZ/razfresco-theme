@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "rf-main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

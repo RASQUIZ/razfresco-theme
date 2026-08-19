@@ -1,0 +1,37 @@
+{%- comment -%} Outlet logo wall on the light Store surface {%- endcomment -%}
+<div class="rf-logowall">
+  {%- for block in section.blocks -%}
+    {%- if block.settings.image != blank -%}
+      {%- if block.settings.url != blank -%}<a href="{{ block.settings.url }}" {{ block.shopify_attributes }}>{%- endif -%}
+      <img
+        src="{{ block.settings.image | image_url: width: 400 }}"
+        alt="{{ block.settings.image.alt | escape }}"
+        style="height: {{ block.settings.height }}px;{% if block.settings.invert %} filter: invert(1);{% endif %}"
+        loading="lazy"
+        {% unless block.settings.url != blank %}{{ block.shopify_attributes }}{% endunless %}>
+      {%- if block.settings.url != blank -%}</a>{%- endif -%}
+    {%- elsif block.settings.text != blank -%}
+      <span {{ block.shopify_attributes }} style="font-family: var(--rf-font-body); font-size:{{ block.settings.height | divided_by: 2.7 }}px; font-weight:500; color:#000; letter-spacing:-0.01em; white-space:nowrap; flex:0 0 auto;">{{ block.settings.text }}</span>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Outlet logos",
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Logo" },
+        { "type": "text", "id": "text", "label": "Or set the name in type", "info": "Used when no image is uploaded." },
+        { "type": "range", "id": "height", "label": "Height", "min": 20, "max": 80, "step": 2, "default": 30, "unit": "px" },
+        { "type": "checkbox", "id": "invert", "label": "Invert (for white-on-black marks)", "default": false },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Outlet logos" }]
+}
+{% endschema %}

@@ -1,0 +1,224 @@
+{
+  "sections": {
+    "credits": {
+      "type": "rf-credits",
+      "blocks": {
+        "credit-1": {
+          "type": "credit",
+          "settings": {
+            "name": "Raekwon",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-2": {
+          "type": "credit",
+          "settings": {
+            "name": "Mac Miller",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-3": {
+          "type": "credit",
+          "settings": {
+            "name": "AZ",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-4": {
+          "type": "credit",
+          "settings": {
+            "name": "Tragedy Khadafi",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-5": {
+          "type": "credit",
+          "settings": {
+            "name": "Pete Rock",
+            "work": "Signs of The Times Featuring The 6th Letter and BriskInTheHouse",
+            "url": "https://streaming.bkrsclb.com/artist/Raz%20Fresco"
+          }
+        },
+        "credit-6": {
+          "type": "credit",
+          "settings": {
+            "name": "Cookin Soul",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-7": {
+          "type": "credit",
+          "settings": {
+            "name": "DJ Muggs",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-8": {
+          "type": "credit",
+          "settings": {
+            "name": "Nicholas Craven",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-9": {
+          "type": "credit",
+          "settings": {
+            "name": "DiBiase",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-10": {
+          "type": "credit",
+          "settings": {
+            "name": "DJ Kay Slay",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-11": {
+          "type": "credit",
+          "settings": {
+            "name": "DJ Don Cannon",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-12": {
+          "type": "credit",
+          "settings": {
+            "name": "DJ Holiday",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-13": {
+          "type": "credit",
+          "settings": {
+            "name": "French Montana",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-14": {
+          "type": "credit",
+          "settings": {
+            "name": "Tyga",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-15": {
+          "type": "credit",
+          "settings": {
+            "name": "Big Sean",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-16": {
+          "type": "credit",
+          "settings": {
+            "name": "B.o.B",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-17": {
+          "type": "credit",
+          "settings": {
+            "name": "The Cool Kids",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-18": {
+          "type": "credit",
+          "settings": {
+            "name": "Rome Streetz",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-19": {
+          "type": "credit",
+          "settings": {
+            "name": "Estee Nack",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-20": {
+          "type": "credit",
+          "settings": {
+            "name": "Ankhlejohn",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-21": {
+          "type": "credit",
+          "settings": {
+            "name": "Tha God Fahim",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-22": {
+          "type": "credit",
+          "settings": {
+            "name": "Lil Supa",
+            "work": "",
+            "url": ""
+          }
+        },
+        "credit-23": {
+          "type": "credit",
+          "settings": {
+            "name": "Dano",
+            "work": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "credit-1",
+        "credit-2",
+        "credit-3",
+        "credit-4",
+        "credit-5",
+        "credit-6",
+        "credit-7",
+        "credit-8",
+        "credit-9",
+        "credit-10",
+        "credit-11",
+        "credit-12",
+        "credit-13",
+        "credit-14",
+        "credit-15",
+        "credit-16",
+        "credit-17",
+        "credit-18",
+        "credit-19",
+        "credit-20",
+        "credit-21",
+        "credit-22",
+        "credit-23"
+      ],
+      "settings": {
+        "title": "Produced for or worked with"
+      }
+    }
+  },
+  "order": [
+    "credits"
+  ]
+}

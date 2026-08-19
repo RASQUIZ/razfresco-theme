@@ -1,0 +1,107 @@
+{%- comment -%}
+  C-01 collection band. Pulls real products from the chosen collection.
+  Front image default, second image on hover. Locked until the launch toggle is flipped.
+{%- endcomment -%}
+{%- liquid
+  assign coll = collections[section.settings.collection]
+  assign locked = section.settings.locked
+-%}
+
+<div class="rf-light" id="{{ section.settings.anchor | default: 'c-01' }}" style="border-bottom: 1px solid var(--rf-hairline-dark);">
+  <div style="padding:64px var(--rf-page-margin) 40px; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:40px; border-bottom:1px solid var(--rf-warmgrey);">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="rf-label" style="color: rgba(3,3,2,0.5);">{{ section.settings.kicker }}</div>
+      <h2 class="rf-display" style="font-size:132px; line-height:0.82;">{{ section.settings.title | default: coll.title }}</h2>
+    </div>
+
+    {%- if locked -%}
+      <div style="display:flex; flex-direction:column; gap:14px; min-width:320px; flex:1; max-width:460px;">
+        <div style="font-size:18px; line-height:1.5; color: rgba(3,3,2,0.7); text-wrap:pretty;">{{ section.settings.locked_note }}</div>
+
+        {%- form 'customer', class: 'rf-signup__fields' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="rf-form__success" style="color: var(--rf-green);">{{ section.settings.locked_success }}</p>
+          {%- elsif form.errors -%}
+            <p class="rf-form__error">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+          <input type="hidden" name="contact[tags]" value="{{ section.settings.waitlist_tag }}">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+            <input class="rf-input rf-input--light" style="flex:1; min-width:200px; width:auto;" type="email" name="contact[email]" placeholder="Email address" required>
+            <button class="rf-btn rf-btn--primary" type="submit">{{ section.settings.locked_cta }}</button>
+          </div>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if coll.products.size > 0 -%}
+    <div class="rf-grid">
+      {%- for product in coll.products limit: section.settings.limit -%}
+        <a class="rf-card" href="{{ product.url }}">
+          <div class="rf-card__media">
+            {%- if product.featured_image -%}
+              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+            {%- endif -%}
+            {%- if product.images[1] -%}
+              <img src="{{ product.images[1] | image_url: width: 800 }}" alt="" loading="lazy">
+            {%- endif -%}
+            {%- if locked -%}
+              <div class="rf-card__tag rf-label">{{ section.settings.lock_badge }}</div>
+            {%- elsif product.available == false -%}
+              <div class="rf-card__tag rf-label">Sold out</div>
+            {%- endif -%}
+          </div>
+          <div class="rf-card__body">
+            <div class="rf-card__name">{{ product.title }}</div>
+            <div class="rf-card__price">{{ product.price | money }}</div>
+            {%- assign colour_option = null -%}
+            {%- for opt in product.options_with_values -%}
+              {%- if opt.name == 'Color' or opt.name == 'Colour' or opt.name == 'Colorway' -%}
+                {%- assign colour_option = opt -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if colour_option -%}
+              <div class="rf-card__colorway">
+                {%- for v in colour_option.values -%}{{ v }}{%- unless forloop.last %} · {% endunless -%}{%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <div style="padding:64px var(--rf-page-margin); color: rgba(3,3,2,0.6);">
+      Pick a collection in the theme customizer to show products here.
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
+    <div style="padding:22px var(--rf-page-margin); display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:20px;">
+      <a class="rf-btn rf-btn--red" href="{{ section.settings.button_url }}">{{ section.settings.button_label }} &#8599;</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection band",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "c-01" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Collection One · 5 per size · One run, no restock" },
+    { "type": "text", "id": "title", "label": "Title", "default": "C-01" },
+    { "type": "range", "id": "limit", "label": "Products shown", "min": 2, "max": 12, "step": 1, "default": 6 },
+    { "type": "header", "content": "Launch gate" },
+    { "type": "checkbox", "id": "locked", "label": "Locked — show waitlist instead of prices going live", "default": true, "info": "Uncheck on launch day. Product pages read this too." },
+    { "type": "text", "id": "lock_badge", "label": "Badge on each tile", "default": "Locked" },
+    { "type": "textarea", "id": "locked_note", "label": "Waitlist note", "default": "Locked until launch. The waitlist gets the password first." },
+    { "type": "text", "id": "locked_cta", "label": "Waitlist button", "default": "Get the password" },
+    { "type": "text", "id": "waitlist_tag", "label": "Customer tag for waitlist signups", "default": "c-01-waitlist" },
+    { "type": "text", "id": "locked_success", "label": "Success message", "default": "You're on the list." },
+    { "type": "header", "content": "Sister store button" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Everything else at BKR$CLB" },
+    { "type": "url", "id": "button_url", "label": "Button URL" }
+  ],
+  "presets": [{ "name": "Collection band" }]
+}
+{% endschema %}

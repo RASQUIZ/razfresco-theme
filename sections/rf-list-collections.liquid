@@ -1,0 +1,56 @@
+{%- comment -%} Collections index — every collection as a large card {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title">{{ section.settings.title }}</h1>
+</div>
+
+<div style="padding: var(--rf-page-margin); display:grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap:1px; background: var(--rf-hairline-dark);">
+  {%- for coll in collections -%}
+    {%- unless coll.handle == 'frontpage' or coll.all_products_count == 0 -%}
+      <a class="rf-light" href="{{ coll.url }}" style="display:flex; flex-direction:column;">
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); background: var(--rf-warmgrey); gap:1px;">
+          {%- for product in coll.products limit: 3 -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 600 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              style="width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block;"
+              loading="lazy">
+          {%- endfor -%}
+        </div>
+        <div style="padding:28px 28px 32px; border-top:1px solid var(--rf-warmgrey); display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px;">
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="rf-display" style="font-size:72px; line-height:0.85;">{{ coll.title }}</div>
+            {%- if coll.description != blank -%}
+              <div class="rf-label" style="color: rgba(3,3,2,0.5);">{{ coll.description | strip_html | truncate: 80 }}</div>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.locked -%}
+            <span class="rf-btn rf-btn--red">{{ section.settings.lock_badge }} &rarr;</span>
+          {%- endif -%}
+        </div>
+      </a>
+    {%- endunless -%}
+  {%- endfor -%}
+</div>
+
+{%- if section.settings.note != blank -%}
+  <div style="padding: var(--rf-page-margin); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; border-top:1px solid var(--rf-hairline-dark);">
+    <div style="font-size:18px; line-height:1.5; color: rgba(255,255,255,0.65); max-width:44ch; text-wrap:pretty;">{{ section.settings.note }}</div>
+    {%- if section.settings.button_url != blank -%}
+      <a class="rf-display" style="font-size:40px;" href="{{ section.settings.button_url }}">{{ section.settings.button_label }} &#8599;</a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Shop" },
+    { "type": "checkbox", "id": "locked", "label": "Show locked badge", "default": true },
+    { "type": "text", "id": "lock_badge", "label": "Badge", "default": "Locked" },
+    { "type": "textarea", "id": "note", "label": "Note", "default": "Exclusives live here. Everything else — the full BKR$CLB catalogue — ships from the label store." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "BKR$CLB" },
+    { "type": "url", "id": "button_url", "label": "Button URL" }
+  ]
+}
+{% endschema %}

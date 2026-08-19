@@ -1,0 +1,100 @@
+{%- comment -%}
+  Hero — logotype beside the era slideshow, with the Bakery signup dropdown.
+{%- endcomment -%}
+<div class="rf-hero">
+  <div class="rf-hero__left">
+    <div class="rf-label" style="color: rgba(255,255,255,0.65);">{{ section.settings.kicker }}</div>
+
+    {%- if section.settings.logotype != blank -%}
+      <img class="rf-hero__logotype" src="{{ section.settings.logotype | image_url: width: 1800 }}" alt="{{ shop.name }}" width="{{ section.settings.logotype.width }}" height="{{ section.settings.logotype.height }}">
+    {%- else -%}
+      <img class="rf-hero__logotype" src="{{ 'razfresco-white.png' | asset_url }}" alt="{{ shop.name }}">
+    {%- endif -%}
+
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px;">
+      <div class="rf-display" style="font-size:34px; line-height:1;">{{ section.settings.roles }}</div>
+
+      {%- if section.settings.show_signup -%}
+        <div class="rf-signup" data-rf-signup>
+          <button class="rf-signup__trigger rf-label" type="button" aria-expanded="false" data-rf-signup-trigger>
+            <span class="rf-signup__dot" aria-hidden="true"></span>
+            {{ section.settings.signup_title }}
+            <span aria-hidden="true" data-rf-caret style="font-size:14px; line-height:1;">&#9660;</span>
+          </button>
+
+          <div class="rf-signup__panel" data-rf-signup-panel hidden>
+            <button class="rf-signup__close" type="button" aria-label="Close" data-rf-signup-close>&times;</button>
+            <div class="rf-signup__note">{{ section.settings.signup_note }}</div>
+
+            {%- form 'customer', class: 'rf-signup__fields' -%}
+              {%- if form.posted_successfully? -%}
+                <p class="rf-form__success">{{ section.settings.signup_success }}</p>
+              {%- elsif form.errors -%}
+                <p class="rf-form__error">{{ form.errors | default_errors }}</p>
+              {%- endif -%}
+
+              <input type="hidden" name="contact[tags]" value="{{ section.settings.member_tag }}">
+              <input class="rf-input" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+              <input class="rf-input" type="text" name="contact[first_name]" placeholder="Username" autocomplete="username">
+              <button class="rf-btn rf-btn--primary rf-btn--full" type="submit">{{ section.settings.signup_cta }}</button>
+            {%- endform -%}
+
+            {%- if section.settings.profile_url != blank -%}
+              <a class="rf-signup__after rf-label" href="{{ section.settings.profile_url }}">{{ section.settings.profile_label }} &rarr;</a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="rf-hero__media" data-rf-slideshow data-rf-interval="{{ section.settings.interval }}">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.image != blank -%}
+        <img
+          data-rf-slide
+          {% if forloop.first %}class="is-active"{% endif %}
+          src="{{ block.settings.image | image_url: width: 1400 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          {{ block.shopify_attributes }}>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if section.settings.show_counter and section.blocks.size > 1 -%}
+      <div class="rf-hero__counter rf-label" data-rf-counter>01 / {{ section.blocks.size }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero slideshow",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Multi-disciplinary artist" },
+    { "type": "image_picker", "id": "logotype", "label": "Logotype" },
+    { "type": "textarea", "id": "roles", "label": "Roles", "default": "Rapper · Producer · Educator\nBKRSCLB" },
+    { "type": "range", "id": "interval", "label": "Seconds per photo", "min": 1, "max": 10, "step": 1, "default": 3, "unit": "s" },
+    { "type": "checkbox", "id": "show_counter", "label": "Show photo counter", "default": true },
+    { "type": "header", "content": "Bakery signup" },
+    { "type": "checkbox", "id": "show_signup", "label": "Show signup dropdown", "default": true },
+    { "type": "text", "id": "signup_title", "label": "Trigger text", "default": "Sign up to The Bakery" },
+    { "type": "textarea", "id": "signup_note", "label": "Note", "default": "One sign-up makes you a Club Member on the streaming app and the store." },
+    { "type": "text", "id": "signup_cta", "label": "Button", "default": "Sign up" },
+    { "type": "text", "id": "member_tag", "label": "Customer tag applied on signup", "default": "club-member-signed-up", "info": "Your streaming app should read this same tag." },
+    { "type": "text", "id": "signup_success", "label": "Success message", "default": "You're in. Check your email to finish your profile." },
+    { "type": "text", "id": "profile_label", "label": "Profile link text", "default": "Complete your profile on The Bakery" },
+    { "type": "url", "id": "profile_url", "label": "Artist page on THE BAKERY" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Hero slideshow" }]
+}
+{% endschema %}

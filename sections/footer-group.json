@@ -1,0 +1,19 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "rf-footer": {
+      "type": "rf-footer",
+      "settings": {
+        "contact_kicker": "Bookings & press",
+        "contact_label": "Contact",
+        "contact_email": "razfrescomgmt@gmail.com",
+        "instagram_handle": "@RazFresco",
+        "instagram": "https://instagram.com/razfresco"
+      }
+    }
+  },
+  "order": [
+    "rf-footer"
+  ]
+}

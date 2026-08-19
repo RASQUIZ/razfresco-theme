@@ -1,0 +1,52 @@
+{%- comment -%} Credits — hover an artist to see the work, click to hear it {%- endcomment -%}
+<div class="rf-sectionhead">
+  <h1 class="rf-sectionhead__title" style="font-size:96px; max-width:22ch;">{{ section.settings.title }}</h1>
+</div>
+
+<div class="rf-credits">
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign tag = 'div'
+      if block.settings.url != blank
+        assign tag = 'a'
+      endif
+    -%}
+    {%- if tag == 'a' -%}
+      <a class="rf-credit" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+    {%- else -%}
+      <div class="rf-credit" {{ block.shopify_attributes }}>
+    {%- endif -%}
+
+      <img class="rf-credit__hat" src="{{ 'hat-white.png' | asset_url }}" alt="" width="34">
+      <span class="rf-credit__name">{{ block.settings.name }}</span>
+
+      {%- if block.settings.work != blank -%}
+        <span class="rf-credit__overlay">
+          <span class="rf-credit__work">{{ block.settings.work }}</span>
+        </span>
+      {%- endif -%}
+
+    {%- if tag == 'a' -%}</a>{%- else -%}</div>{%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Credits",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Produced for or worked with" }
+  ],
+  "blocks": [
+    {
+      "type": "credit",
+      "name": "Credit",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Artist name" },
+        { "type": "textarea", "id": "work", "label": "The song or piece", "info": "Shown as an overlay on hover. Leave blank for no overlay." },
+        { "type": "url", "id": "url", "label": "Link to the song", "info": "Ideally the track on THE BAKERY." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Credits" }]
+}
+{% endschema %}
