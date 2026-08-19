@@ -3,9 +3,10 @@
   <h1 class="rf-sectionhead__title">{{ section.settings.title }}</h1>
 </div>
 
-<div style="padding: var(--rf-page-margin); display:grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap:1px; background: var(--rf-hairline-dark);">
+  {%- assign has_collections = false -%}
   {%- for coll in collections -%}
     {%- unless coll.handle == 'frontpage' or coll.all_products_count == 0 -%}
+      {%- assign has_collections = true -%}
       <a class="rf-light" href="{{ coll.url }}" style="display:flex; flex-direction:column;">
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); background: var(--rf-warmgrey); gap:1px;">
           {%- for product in coll.products limit: 3 -%}
@@ -30,6 +31,25 @@
       </a>
     {%- endunless -%}
   {%- endfor -%}
+
+  {%- unless has_collections -%}
+    <a class="rf-light" href="/collections/c-01" style="display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); background: var(--rf-warmgrey); gap:1px;">
+        <img src="{{ 'prod-hoodie-7154-green-front.png' | asset_url }}" alt="" style="width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block;" loading="lazy">
+        <img src="{{ 'prod-jersey-white-front.png' | asset_url }}" alt="" style="width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block;" loading="lazy">
+        <img src="{{ 'prod-sshood-black-front.png' | asset_url }}" alt="" style="width:100%; aspect-ratio:1/1; object-fit:contain; background:#fff; display:block;" loading="lazy">
+      </div>
+      <div style="padding:28px 28px 32px; border-top:1px solid var(--rf-warmgrey); display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px;">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div class="rf-display" style="font-size:72px; line-height:0.85;">C-01</div>
+          <div class="rf-label" style="color: rgba(3,3,2,0.5);">Collection One · Six pieces · 5 per size</div>
+        </div>
+        {%- if section.settings.locked -%}
+          <span class="rf-btn rf-btn--red">{{ section.settings.lock_badge }} &rarr;</span>
+        {%- endif -%}
+      </div>
+    </a>
+  {%- endunless -%}
 </div>
 
 {%- if section.settings.note != blank -%}
